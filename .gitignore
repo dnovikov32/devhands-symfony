@@ -7,6 +7,7 @@ docker-compose.yml
 package-lock.json
 npm-debug.log
 .idea
+servers.yml
 
 ###> symfony/framework-bundle ###
 /.env.local

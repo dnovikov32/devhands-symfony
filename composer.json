@@ -41,7 +41,7 @@
     },
     "sort-packages": true,
     "allow-plugins": {
-      "symfony/flex": true,
+      "symfony/flex": false,
       "symfony/runtime": true
     }
   },

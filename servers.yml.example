@@ -1,0 +1,7 @@
+prod:
+  hostname: devhands-web
+  user: webuser
+  stage: production
+  deploy_path: /home/webuser/www/symfony
+  configFile: ~/.ssh/config
+  identityFile: ~/.ssh/id_rsa
