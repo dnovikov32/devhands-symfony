@@ -1,0 +1,2 @@
+parameters:
+  app.site.base_url: 'https://%env(SITE_HOST)%'

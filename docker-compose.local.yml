@@ -1,0 +1,45 @@
+version: '3.9'
+
+networks:
+  devhands-symfony:
+
+services:
+  php:
+    container_name: devhands-symfony-php
+    entrypoint: /entrypoint.sh
+    env_file:
+      - .env
+    build:
+      context: ./
+      dockerfile: ./.docker/php/dockerfile.local
+    volumes:
+      - "${HOME}/.cache:/home/docker/.cache"
+      - "${HOME}/.composer:/home/docker/.composer"
+      - "${HOME}/.npm:/home/docker/.npm"
+      - ./.docker/php/entrypoint.local.sh:/entrypoint.sh
+      - ./.:/app
+    expose:
+      - 9000
+      - 9009
+    networks:
+      - devhands-symfony
+
+  nginx:
+    container_name: devhands-symfony-nginx
+    build:
+      context: ./
+      dockerfile: ./.docker/nginx/dockerfile
+      args:
+        - SITE_HOST
+    volumes:
+      - "${HOME}/.cache:/home/docker/.cache"
+      - "${HOME}/.composer:/home/docker/.composer"
+      - "${HOME}/.npm:/home/docker/.npm"
+      - ./.:/app
+    depends_on:
+      - php
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - devhands-symfony
