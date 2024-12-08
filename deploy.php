@@ -30,13 +30,6 @@ task('save_version', function () {
     run ('cd {{release_path}} && git rev-parse --short HEAD > .version');
 })->desc('Saving version');
 
-/**
- * Links from data to web
- */
-task('deploy:links', function () {
-    run('ln -sf {{deploy_path}}/shared/data/ {{release_path}}/app/web/');
-})->desc('Set links for data directory');
-
 task('deploy', [
     'deploy:prepare',
     'deploy:release',
@@ -45,7 +38,6 @@ task('deploy', [
     'deploy:writable',
     'deploy:copy_dirs',
     'deploy:vendors',
-    'deploy:links',
     'save_version',
     'deploy:symlink',
     'cleanup'
