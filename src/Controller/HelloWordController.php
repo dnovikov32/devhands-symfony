@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class HelloWordController
 {
     #[Route('/hello/word', name: 'hello_word')]
-    public function number(): Response
+    public function hello(): Response
     {
         return new JsonResponse([
             'data' => 'Hello word'
