@@ -1,4 +1,4 @@
-FROM price-monitoring-php-base
+FROM devhands-symfony-php-base
 
 COPY ./.docker/bootstrap-permissions.sh /bootstrap-permissions.sh
 

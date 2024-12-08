@@ -14,7 +14,7 @@ ln -s docker-compose.local.yml docker-compose.yml
 
 Add `.env` variable `SITE_HOST` value to `/etc/hosts`
 ```text
-127.0.1.1	price-monitoring.docker
+127.0.1.1	devhands-symfony.docker
 ```
 
 Build application:
