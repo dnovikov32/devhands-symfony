@@ -6,3 +6,5 @@ framework:
     enabled: false
   php_errors:
     log: true
+  profiler:
+    enabled: false
